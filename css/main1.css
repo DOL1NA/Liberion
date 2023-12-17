@@ -129,7 +129,7 @@ footer {
 
 .socialIcons a {
   text-decoration: none;
-  padding: 10px;
+  padding: 0px;
   background-color: white;
   margin: 10px;
   border-radius: 50%;
@@ -568,4 +568,34 @@ img[scalable]
 
 .galary {
   margin: 30px 12%;
+}
+
+.textdlacopy {
+  background: #1c1c1c;
+  font-size: 25px;
+  font-family: monospace;
+  color:#fafafa;
+  padding: 5px 15px;
+  width: 420px;
+  border: 1px solid #fafafa15;
+  border-radius: 15px;
+}
+
+.svazatsaknopka {
+  background: none;
+  font-size: 25px;
+  font-family: monospace;
+  color:#fafafa;
+  padding: 5px 15px;
+  border: 1px solid #fafafa;
+  border-radius: 7px;
+  text-decoration: none;
+  transition: .3s;
+}
+.svazatsaknopka:hover {
+  border-radius: 20px;
+  background: #003b3e ;
+  transition: .3s;
+  letter-spacing : 2px ;
+  border: 1px solid rgb(66, 255, 255);
 }

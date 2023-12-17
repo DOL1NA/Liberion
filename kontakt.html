@@ -8,6 +8,12 @@
 
     <title>Обратная связь</title>
 
+    <style>
+    #copyMessage {
+      transition: opacity 0.5s ease-in;
+      transition: opacity 0.5s ease-in-out;
+    }
+    </style>
     <link rel="icon" href="img/libicon.ico">
     <link rel="stylesheet" href="css/main1.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -31,14 +37,31 @@
       </nav>
     </header>
     <div>
-
+      <div class="blokprav" style="margin: 50px 400px;">
+          <h2 style="font-size: 28px;">Обратная связь</h2>
+          <br>
+          <p>
+            <a class="svazatsaknopka" href = 'https://discordapp.com/users/329804470357590016/'>Discord</a>
+          </p>
+          <br>
+          <br>
+          <p>
+            <a class="svazatsaknopka" href = 'https://t.me/D01INA'>Telegram</a>
+          </p>
+          <br>
+          <br>
+          <p>
+            <a class="svazatsaknopka" onclick="copyText()">Скопировать</a> <input class="textdlacopy" type="text" id="textToCopy" value="danila.samarin.03@yandex.com"> <span class="textdlacopy" id="copyMessage" style="display: none;">Текст скопирован</span>
+          </p>
+          <br>
+      </div>
     </div>
     <footer>
       <div class="footerContainer">
         <div class="socialIcons">
-          <a href="https://vk.com/liberion_minecraft" target="_blank"><i class="fa-brands fa-vk"></i></a>
-          <a href="https://discord.gg/SW3MeTC5S2" target="_blank"><i class="fa-brands fa-discord"></i></a>
-          <a href="https://www.youtube.com/@LiberionMinecraft/featured" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://vk.com/liberion_minecraft" target="_blank"><i class="fa-brands fa-vk" style="padding: 10px 14px;"></i></a>
+          <a href="https://discord.gg/SW3MeTC5S2" target="_blank"><i class="fa-brands fa-discord" style="padding: 10px 9px;"></i></a>
+          <a href="https://www.youtube.com/@LiberionMinecraft/featured" target="_blank"><i class="fa-brands fa-youtube" style="padding: 10px 10px;"></i></a>
         </div>
         <div class="footerNav">
           <ul>
@@ -53,5 +76,23 @@
       </div>
     </footer>
     <div class="go-top">▲</div>
+
+    <script>
+    function copyText() {
+      var text = document.getElementById('textToCopy').value;
+      var copyMessage = document.getElementById('copyMessage');
+      try {
+        navigator.clipboard.writeText(text);
+        copyMessage.style.display = 'inline'; // Показываем сообщение о копировании
+        copyMessage.style.opacity = 1; // Плавное появление сообщения
+        setTimeout(function() {
+          copyMessage.style.opacity = 0; // Плавное исчезновение сообщения через некоторое время
+        }, 4000); // Через 3 секунды
+      } catch (err) {
+        alert('Копирование не поддерживается в вашем браузере');
+      }
+    }
+    </script>
+
   </body>
 </html>

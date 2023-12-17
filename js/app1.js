@@ -170,3 +170,4 @@ function goTop() {
     img.style = `max-width: ${bigImgWidth}px; max-height: ${bigImgHeight}px; left: ${left}px; top: ${top}px; position: fixed; z-index: 3`;
   }
 })();
+
