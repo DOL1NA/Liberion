@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Об авторе</title>
+    <title>Статистика сервера</title>
 
     <link rel="icon" href="img/libicon.ico">
     <link rel="stylesheet" href="css/main1.css">
@@ -27,16 +27,16 @@
         <a href="pravila.html">Правила</a>
         <a href="galary.html">Галерея</a>
         <a href="monitoring.html">Голосования</a>
-        <a href="statistika.html">Статистика</a>
+        <a style="color: dimgray;">Статистика</a>
         <a href="http://m21.joinserver.xyz:25646/" target="_blank">Карта</a>
       </nav>
     </header>
-    <div>
-      <div class="textposleblokov" style="margin: 50px 200px;">
-        <p>
-          Привет! Автор сайта слишком глупый, чтобы нормально написать про себя. Ну и ему слишком лень. Так что пишите в лс Дискорда то, что можно про меня написать.
-        </p>
-      </div>
+      <div class="container">
+        <div>
+            <h1 id="server-ip">play.myserver.com</h1>
+            <span id="motd">A beautiful minecraft server</span>
+            <div><span id="player-count">00</span> Players Online</div>
+        </div>
     </div>
     <footer>
       <div class="footerContainer">
@@ -48,7 +48,7 @@
         <div class="footerNav">
           <ul>
             <li><a href="index.html">Главная</a></li>
-            <li><a style="color: dimgray;">Об авторе</a></li>
+            <li><a href="obavtore.html">Об авторе</a></li>
             <li><a href="kontakt.html">Обратная связь</a></li>
           </ul>
         </div>
@@ -58,5 +58,31 @@
       </div>
     </footer>
     <div class="go-top">▲</div>
+    <script>
+      function initServerData(serverIp,serverPort){
+          const serverIpElement = document.getElementById('server-ip');
+          serverIpElement.innerHTML = serverIp;
+          fetch('https://mcapi.us/server/status?ip='+serverIp+'&port='+serverPort)
+          .then(response => response.json())
+          .then(data => handleServerStatus(data));
+    
+          function handleServerStatus(data){
+              if(data.status=='error'){
+                  console.log(data.error);
+                  return false;
+              }
+              const motd = document.getElementById("motd");
+              motd.innerHTML = data.motd;
+  
+              const playerCounter = document.getElementById("player-count");
+              playerCounter.innerHTML = data.players.now;
+  
+              const logo = document.getElementById("server-icon");
+              logo.src = data.favicon;
+          } 
+      }
+  
+      initServerData("play.dawn-mc.net","25565");
+  </script>
   </body>
 </html>
